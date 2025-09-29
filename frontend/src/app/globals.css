@@ -1,0 +1,110 @@
+:root {
+  --background: #f8fafc; /* slate-50 */
+  --foreground: #0f172a; /* slate-900 */
+  --muted: #475569;      /* slate-600 */
+  --card: #ffffff;
+  --border: #e2e8f0;     /* slate-200 */
+  --primary: #2563eb;    /* blue */
+  --primary-contrast: #ffffff;
+  --accent: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b1220;
+    --foreground: #e2e8f0;
+    --muted: #94a3b8;
+    --card: #0f172a;
+    --border: #1f2937;
+    --primary: #3b82f6;
+    --primary-contrast: #0b1220;
+    --accent: #3b82f6;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+/* UI primitives */
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.stack { display: grid; gap: 12px; }
+.stack-lg { display: grid; gap: 24px; }
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--foreground);
+}
+.input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,.2); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 0;
+  border: 3px solid #000;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #000;
+}
+.btn:hover { filter: brightness(.95); transform: translate(-1px, -1px); box-shadow: 6px 6px 0 #000; }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+.btn.small { padding: 8px 12px; border-radius: 0; font-size: 14px; }
+.btn.secondary { background: var(--card); color: var(--foreground); border-color: #000; }
+
+.card {
+  border: 3px solid #000;
+  background: var(--card);
+  border-radius: 0;
+  padding: 12px;
+  box-shadow: 6px 6px 0 #000;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.label-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap;
+}
+
+.muted { color: var(--muted); }
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
