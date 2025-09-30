@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: django-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: gunicorn core.wsgi:application --chdir backend
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: core.settings
+      - key:GOOGLE_BOOKS_API_KEY
+        value: AIzaSyB_bNw045eHfs4Iy4oXNageq_R3I1VI5kg
+      
